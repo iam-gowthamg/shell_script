@@ -1,0 +1,36 @@
+0 stdin
+1 stdout
+2 stderr
+
+0 -> read input
+1 -> echo "output" -> output will be displayed
+2 -> its error we are getting so below are the examples
+
+$cat file.txt > out.txt
+cat: file.txt: No such file or directory
+
+Above error we are getting as stderr for which we are getting in terminal 
+that can be redirect with below
+
+[root@ansiblehost notes]# cat file.txt >> out.txt 2>&1
+[root@ansiblehost notes]# cat out.txt
+cat: file.txt: No such file or directory
+[root@ansiblehost notes]# cat file.txt >> out.txt 2>&1
+[root@ansiblehost notes]# cat out.txt
+cat: file.txt: No such file or directory
+cat: file.txt: No such file or directory
+[root@ansiblehost notes]# cat file.txt > out.txt
+cat: file.txt: No such file or directory
+[root@ansiblehost notes]#
+
+above example showing how it howing in terminal and 
+when i keep 2>&1
+indicates 2(stderr) which needs to > (redirect) to stdout (1) of same location (&1)
+
+can also redirect to another path using below
+
+[root@ansiblehost notes]# cat file.txt >> output.txt 2>> ./stderr.txt
+[root@ansiblehost notes]# cat stderr.txt
+cat: file.txt: No such file or directory
+[root@ansiblehost notes]#
+
