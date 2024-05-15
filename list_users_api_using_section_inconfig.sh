@@ -3,23 +3,13 @@
 # GitHub API URL
 API_URL="https://api.github.com"
 
-# GitHub username and personal access token
-# Path to the .config.ini file
-CONFIG_FILE=".config.ini"
+# Call the read_config_value function from read_config.sh
+source ./read_config.sh
+github_username=$(read_config_value "GitHub" "USERNAME")
+github_token=$(read_config_value "GitHub" "TOKEN")
+USERNAME=$github_username
+TOKEN=$github_token
 
-# Check if the config file exists
-if [ ! -f "$CONFIG_FILE" ]; then
-    echo "Error: Configuration file $CONFIG_FILE not found."
-    exit 1
-fi
-
-# Read the USERNAME and TOKEN values from the config file using awk
-USERNAME=$(awk -F '=' '/^\[GitHub\]/{flag=1; next} /^\[.*\]/{flag=0} flag && /^USERNAME/ {print $2}' "$CONFIG_FILE" | xargs)
-TOKEN=$(awk -F '=' '/^\[GitHub\]/{flag=1; next} /^\[.*\]/{flag=0} flag && /^TOKEN/ {print $2}' "$CONFIG_FILE" | xargs)
-#USERNAME=$(awk -F '=' '/^USERNAME/ {print $2}' "$CONFIG_FILE")
-
-echo $USERNAME
-echo $TOKEN
 # User and Repository information
 REPO_OWNER=$1
 REPO_NAME=$2
