@@ -19,4 +19,12 @@ sum of each column1 of each row and print sum at the end of awk
 
 awk -F ":" 'BEGIN {OFS="-"} { if(NR == 1)  print( NR, $1, $2, NF)}' /etc/passwd
 
+cat file.txt | tr '[:upper:]' '[:lower:]'
+cat file.txt | tr 'e' 'R'
+translate command modify one char/str to another
 
+tee command
+when we run sudo on remote server ,we can use tee commands to get those in logs of that server
+echo 'hu' | sudo tee -a /etc/passwd
+it will appedn hi in that passwd
+when -a removed it will rewrite it , very power ful commands - Now I am not getting my linux machine 
