@@ -7,3 +7,16 @@ cut -d " "-f 2 filename
 cut -d deliminator for field separator with space and give (-f) column 2 for filename provided
 
 echo "hell" | cut -c 2-5
+
+#awk
+awk -F ":" 'BEGIN {OFS="-"} { print( NR, $1, $2, NF)}' /etc/passwd
+-F field deliminator
+BEGIN with field separator while printing
+print line by line with NR row numnber + $1 first column value + NF number of colums in row
+
+awk ' {sum+=$1} END{print sum} ' number.txt
+sum of each column1 of each row and print sum at the end of awk
+
+awk -F ":" 'BEGIN {OFS="-"} { if(NR == 1)  print( NR, $1, $2, NF)}' /etc/passwd
+
+
