@@ -1,0 +1,9 @@
+Commenting in vi
+:2,5s/^/#
+From 2 to line 5 , starting (^) of the line placed with comment (#)
+
+#cut
+cut -d " "-f 2 filename
+cut -d deliminator for field separator with space and give (-f) column 2 for filename provided
+
+echo "hell" | cut -c 2-5
