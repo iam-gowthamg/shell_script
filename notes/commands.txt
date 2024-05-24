@@ -28,3 +28,11 @@ when we run sudo on remote server ,we can use tee commands to get those in logs 
 echo 'hu' | sudo tee -a /etc/passwd
 it will appedn hi in that passwd
 when -a removed it will rewrite it , very power ful commands - Now I am not getting my linux machine 
+
+#################
+$# 
+$?
+$!
+$0
+Find out about these
+
